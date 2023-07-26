@@ -52,6 +52,13 @@ async function run() {
          res.send(result);
       });
 
+      // bookings--------
+      app.get('/bookings', async(req, res)=>{
+        const result =  await bookingCollection.find().toArray();
+        res.send(result);
+      })
+
+
       app.post('/bookings', async(req, res)=>{
         const bookings = req.body;
         console.log(bookings);
